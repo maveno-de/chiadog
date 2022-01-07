@@ -29,7 +29,7 @@ class HarvesterActivityParser:
     """
 
     def __init__(self, config):
-        logging.info("Enabled parser for harvester activity - eligible plot events.")1
+        logging.info("Enabled parser for harvester activity - eligible plot events.")
         executableName = config['chia_logs']['executableName']
         self._regex = re.compile(
             r"([0-9:.]*) harvester (?:src|" + executableName + r").harvester.harvester(?:\s?): INFO\s*([0-9]+) plots were "
