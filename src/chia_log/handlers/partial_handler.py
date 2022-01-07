@@ -15,8 +15,8 @@ class PartialHandler(LogHandler):
     that are evaluated for each event.
     """
 
-    def __init__(self):
-        self._parser = PartialParser()
+    def __init__(self, executableName):
+        self._parser = PartialParser(executableName)
         self._cond_checkers: List[PartialConditionChecker] = []
 
     def handle(self, logs: str, stats_manager: Optional[StatsManager] = None) -> List[Event]:

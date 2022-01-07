@@ -14,8 +14,8 @@ class WalletAddedCoinHandler(LogHandler):
     receiving XCH and creates user notifications.
     """
 
-    def __init__(self):
-        self._parser = WalletAddedCoinParser()
+    def __init__(self, executableName):
+        self._parser = WalletAddedCoinParser(executableName)
 
     def handle(self, logs: str, stats_manager: Optional[StatsManager] = None) -> List[Event]:
         events = []

@@ -17,8 +17,8 @@ class FinishedSignagePointHandler(LogHandler):
     that are evaluated for each event.
     """
 
-    def __init__(self):
-        self._parser = FinishedSignagePointParser()
+    def __init__(self, executableName):
+        self._parser = FinishedSignagePointParser(executableName)
         self._cond_checkers: List[FinishedSignageConditionChecker] = [NonSkippedSignagePoints()]
 
     def handle(self, logs: str, stats_manager: Optional[StatsManager] = None) -> List[Event]:

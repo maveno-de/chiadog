@@ -37,7 +37,7 @@ class MattermostNotifier(Notifier):
                      "Authorization": 'Basic %s' % base64UsernamePassword }
                 )
                 response = conn.getresponse()
-                if response.getcode() != 204:
+                if response.getcode() != 200:
                     logging.warning(f"Problem sending event to user, code: {response.getcode()}")
                     errors = True
                 conn.close()

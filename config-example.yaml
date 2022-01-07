@@ -10,6 +10,7 @@ log_level: INFO
 # delete the section for the consumer which you aren't using
 # For Windows file path needs to be absolute.
 chia_logs:
+  executableName: 'chia'
   file_log_consumer:
     enable: true
     file_path: '~/.chia/mainnet/log/debug.log'

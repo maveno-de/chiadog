@@ -10,7 +10,7 @@ from src.chia_log.handlers.finished_signage_point_handler import FinishedSignage
 from src.chia_log.handlers.wallet_added_coin_handler import WalletAddedCoinHandler
 from src.chia_log.log_consumer import LogConsumerSubscriber, LogConsumer
 from src.notifier.notify_manager import NotifyManager
-
+from src.config import Config
 
 class LogHandler(LogConsumerSubscriber):
     """This class holds a list of handlers that analyze
@@ -27,16 +27,16 @@ class LogHandler(LogConsumerSubscriber):
     """
 
     def __init__(
-        self, log_consumer: LogConsumer, notify_manager: NotifyManager, stats_manager: Optional[StatsManager] = None
+        self, config: Config, log_consumer: LogConsumer, notify_manager: NotifyManager, stats_manager: Optional[StatsManager] = None
     ):
         self._notify_manager = notify_manager
         self._stats_manager = stats_manager
         self._handlers = [
-            HarvesterActivityHandler(),
-            PartialHandler(),
-            BlockHandler(),
-            FinishedSignagePointHandler(),
-            WalletAddedCoinHandler(),
+            HarvesterActivityHandler(config['executableName']),
+            PartialHandler(config['executableName']),
+            BlockHandler(config['executableName']),
+            FinishedSignagePointHandler(config['executableName']),
+            WalletAddedCoinHandler(config['executableName']),
         ]
         log_consumer.subscribe(self)
 
