@@ -26,7 +26,7 @@ class BlockParser:
 
     def __init__(self, config):
         logging.info("Enabled parser for block found stats.")
-        executableName = config.get_chia_logs_config()['executableName']
+        executableName = executableName = config.get_config()['chia_logs']['executableName']
         self._regex = re.compile(
             r"([0-9:.]*) full_node (?:src|" + executableName + r").full_node.full_node\s*: INFO\s* ((?:🍀|.)\s* Farmed unfinished_block)"
         )
