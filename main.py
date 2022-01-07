@@ -65,6 +65,8 @@ def init(config:Config):
     if log_consumer is None:
         exit(0)
 
+    logging.info(f"Logs config: {chia_logs_config}")
+
     # Keep a reference here so we can stop the thread
     # TODO: read keep-alive thresholds from config
     keep_alive_monitor = KeepAliveMonitor(config=config.get_keep_alive_monitor_config())
