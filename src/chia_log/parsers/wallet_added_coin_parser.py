@@ -24,7 +24,7 @@ class WalletAddedCoinParser:
 
     def __init__(self, config):
         logging.info("Enabled parser for wallet activity - added coins.")
-        executableName = executableName = list(config._get_child_config())[0]['chia_logs']['executableName']
+        executableName = executableName = list(config.get_chia_logs_config())[0]['chia_logs']['executableName']
         self._regex = re.compile(
             r"([0-9:.]*) wallet (?:src|" + executableName + r").wallet.wallet_state_manager(?:\s?): "
             r"INFO\s*Adding coin: {'amount': ([0-9]*),"
