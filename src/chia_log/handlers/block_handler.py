@@ -17,8 +17,8 @@ class BlockHandler(LogHandler):
     that are evaluated for each event.
     """
 
-    def __init__(self, executableName):
-        self._parser = BlockParser(executableName)
+    def __init__(self, config):
+        self._parser = BlockParser(config)
         self._cond_checkers: List[BlockConditionChecker] = [FoundBlocks()]
 
     def handle(self, logs: str, stats_manager: Optional[StatsManager] = None) -> List[Event]:

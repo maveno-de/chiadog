@@ -32,11 +32,11 @@ class LogHandler(LogConsumerSubscriber):
         self._notify_manager = notify_manager
         self._stats_manager = stats_manager
         self._handlers = [
-            HarvesterActivityHandler(config['executableName']),
-            PartialHandler(config['executableName']),
-            BlockHandler(config['executableName']),
-            FinishedSignagePointHandler(config['executableName']),
-            WalletAddedCoinHandler(config['executableName']),
+            HarvesterActivityHandler(config),
+            PartialHandler(config),
+            BlockHandler(config),
+            FinishedSignagePointHandler(config),
+            WalletAddedCoinHandler(config),
         ]
         log_consumer.subscribe(self)
 
