@@ -28,7 +28,7 @@ class FinishedSignagePointParser:
         logging.info("Enabled parser for finished signage points.")
         # Doing some "smart" tricks with this expression to also match the 64th signage point
         # with the same regex expression. See test examples to see how they differ.
-        executableName = executableName = list(config.get_chia_logs_config())[0]['chia_logs']['executableName']
+        executableName = executableName = list(config.get_chia_logs_config().values())[0]['executableName']
         self._regex = re.compile(
             r"([0-9:.]*) full_node (?:src|" + executableName + r").full_node.full_node(?:\s?): INFO\s*(?:⏲️|.)[a-z A-Z,]* ([0-9]*)\/64"
         )
