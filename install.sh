@@ -20,16 +20,16 @@ if ! package_installed libpython3-dev || ! package_installed build-essential; th
 fi
 
 # Create virtual environment
-python3 -m venv venv
+/usr/bin/python3 -m venv venv
 
 # Activate virtual environment
 . ./venv/bin/activate
 
 # Update pip3 to latest version
-python3 -m pip install --upgrade pip
+/usr/bin/python3 -m pip install --upgrade pip
 
 # Install dependencies
-pip3 install wheel && pip3 install -r requirements.txt
+pip install wheel && pip install -r requirements.txt
 
 # Deactivate virtual environment
 deactivate

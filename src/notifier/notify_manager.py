@@ -14,6 +14,7 @@ from .smtp_notifier import SMTPNotifier
 from .telegram_notifier import TelegramNotifier
 from .discord_notifier import DiscordNotifier
 from .slack_notifier import SlackNotifier
+from .mattermost_notifier import MattermostNotifier
 from src.config import Config
 
 
@@ -33,6 +34,7 @@ class NotifyManager:
 
     def _initialize_notifiers(self):
         key_notifier_mapping = {
+            "mattermost": MattermostNotifier,
             "pushover": PushoverNotifier,
             "script": ScriptNotifier,
             "telegram": TelegramNotifier,
