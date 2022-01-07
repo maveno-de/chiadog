@@ -40,6 +40,15 @@ daily_stats:
 # If you enable wallet_events you'll get notifications anytime your
 # wallet receives some XCH (e.g. farming reward).
 notifier:
+  mattermost:
+    enable: false
+    daily_stats: true
+    wallet_events: true
+    credentials:
+      channel_id: 'dummy_channel_id'
+      username: 'dummy_username'
+	    password: 'dummy_password'
+      host: 'dummy_hostname'
   pushover:
     enable: false
     daily_stats: true
