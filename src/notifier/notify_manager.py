@@ -4,7 +4,7 @@ import time
 from typing import List, Dict
 
 # project
-from . import Event, Notifier
+from . import Event, EventPriority, EventType, EventService, Notifier
 from .grafana_notifier import GrafanaNotifier
 from .keep_alive_monitor import KeepAliveMonitor
 from .mqtt_notifier import MqttNotifier
@@ -51,6 +51,7 @@ class NotifyManager:
                 self._notifiers[key] = key_notifier_mapping[key](
                     title_prefix=self._notification_title_prefix, config=self._config[key]
                 )
+                #self._notifiers[key].send_events_to_user([Event(EventType.USER, EventPriority.HIGH, EventService.DAILY,"Check!")]])
 
         if len(self._notifiers.values()) == 0:
             logging.warning("Cannot process user events: 0 notifiers are enabled!")
